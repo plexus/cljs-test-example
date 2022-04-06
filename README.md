@@ -1,8 +1,8 @@
 # Example test setup(s) for shadow-cljs
 
-## node-test
+## shadow-node
 
-Example of a node-script project with node-based tests
+Shadow-cljs project, containing a "node-script", using Shadow's own test runner.
 
 ```
 cd node-test
@@ -16,12 +16,12 @@ test run after the compile finishes. Note that if you are using `shadow-cljs
 server`, then the test output during `watch` will show up in the output of the
 server.
 
-## browser-test
+## shadow-browser
 
-Project that targets the browser. Here the `test` target will create an
-`index.html` and a bunch of javascript file in the `out` directory. We'll have
-to serve that directory up with a web server (e.g. shadow's dev-http), and open
-it in the browser.
+Shadow-cljs project that targets the browser. Here the `test` target will create
+an `index.html` and a bunch of javascript file in the `out` directory. We'll
+have to serve that directory up with a web server (e.g. shadow's dev-http), and
+open it in the browser.
 
 ```
 shadow-cljs server
@@ -38,7 +38,6 @@ shadow-cljs watch test
 Open http://localhost:8000 in the browser. If you used `watch` then changing the
 tests and saving will actually re-run them in the browser.
 
+## shadow-browser-chui
 
-
-
-
+Like shadow-browser, but replace Shadow's own cljs test runner namespace with [Chui](https://github.com/lambdaisland/chui)
