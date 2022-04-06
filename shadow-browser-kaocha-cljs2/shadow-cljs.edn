@@ -1,5 +1,4 @@
-{:source-paths ["src" "test"]
- :dependencies [[lambdaisland/chui "1.1.192"]]
+{:deps {:aliases [:test]}
 
  :dev-http {8000 "out"}
 
@@ -10,5 +9,6 @@
 
   :test
   {:target :browser-test
-   :runner-ns lambdaisland.chui.shadow.browser-runner
-   :test-dir "out"}}}
+   :runner-ns kaocha.cljs2.shadow-runner ;; lambdaisland.chui.shadow.browser-runner
+   :test-dir "out"
+   :devtools {:preloads [lambdaisland.chui.remote]}}}}
