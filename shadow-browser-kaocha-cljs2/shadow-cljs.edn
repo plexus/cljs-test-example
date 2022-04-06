@@ -1,0 +1,14 @@
+{:source-paths ["src" "test"]
+ :dependencies [[lambdaisland/chui "1.1.192"]]
+
+ :dev-http {8000 "out"}
+
+ :builds
+ {:main
+  {:target :browser
+   :modules {:main {:entries [basic-shadow.main]}}}
+
+  :test
+  {:target :browser-test
+   :runner-ns lambdaisland.chui.shadow.browser-runner
+   :test-dir "out"}}}
