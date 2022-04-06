@@ -43,6 +43,17 @@
 
 (defn launch-browser-and-wait [{:funnel/keys [conn]
                                 :kaocha.cljs2/keys [timeout]}]
+  ;; Both these calls ask Funnel if it has any clients that look like they are
+  ;; the ones we would want to talk to, in particular it sends this query to Funnel:
+  ;;
+  ;; {:lambdaisland.chui.remote? true
+  ;;  :working-directory (.getAbsolutePath (io/file ""))}
+  ;;
+  ;; Remember that Funnel is fully symmetrical, Kaocha-cljs2 (JVM) is just
+  ;; another client, as are Chui-remote (JS) clients. We only want chui-remote
+  ;; clients, and in particular we want ones which CLJS build was triggered in
+  ;; the same project directory that we are in, so we don't accidentally connect
+  ;; to another project's browser tab.
   (when (empty? (funnel/list-clients conn))
     (browse/browse-url "http://localhost:8000"))
   (funnel/wait-for-clients conn (if timeout {:timeout timeout})))
