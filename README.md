@@ -63,3 +63,29 @@ shadow-cljs watch test
 
 Open http://localhost:8000 in the browser. If you used `watch` then changing the
 tests and saving will actually re-run them in the browser.
+
+## shadow-browser-kaocha-cljs2
+
+A full setup with [kaocha-cljs2](https://github.com/lambdaisland/kaocha-cljs2/),
+which builds upon [Chui](https://github.com/lambdaisland/chui) as the
+ClojureScript test runner component, and
+[Funnel](https://github.com/lambdaisland/funnel) for communication between the
+two.
+
+It's not a trivial setup because kaocha-cljs2 is fully 'unbundled', you need to
+wire up all the parts, but the setup itself is convenient to use. A standard
+`bin/kaocha` will do all the work, including compiling to JS, starting Funnel if
+necessary, and opening a browser tab, if necessary.
+
+### How to run:
+
+```
+bin/kaocha
+```
+
+Optionally you can run Funnel yourself to get some more insight into what's
+happening.
+
+```
+bin/funnel_wrapper
+```
