@@ -1,0 +1,13 @@
+{:source-paths ["src" "test"]
+ :dependencies []
+
+ :dev-http {8000 "out"}
+
+ :builds
+ {:main
+  {:target :browser
+   :modules {:main {:entries [basic-shadow.main]}}}
+
+  :test
+  {:target :browser-test
+   :test-dir "out"}}}
