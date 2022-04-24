@@ -7,7 +7,7 @@ Shadow-cljs project, containing a "node-script", using Shadow's own test runner.
 ### How to run:
 
 ```
-cd node-test
+cd shadow-node
 shadow-cljs compile test
 # or
 shadow-cljs watch test
